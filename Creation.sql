@@ -7,11 +7,18 @@ CREATE TABLE Player (
     Email VARCHAR2(100) UNIQUE NOT NULL,
     Password VARCHAR2(255) NOT NULL, 
     Phonenumber VARCHAR2(15),
-    Rating INT CHECK (Rating >= 0)n default 1500,
+    Rating INT CHECK (Rating >= 0),
     
     CONSTRAINT Player_PK PRIMARY KEY (Nickname)
 );
 
+CREATE TABLE Titles (
+    TitleId INT NOT NULL,
+    TitleName VARCHAR2(30) NOT NULL,
+
+    CONSTRAINT Titles_PK PRIMARY KEY (TitleId),
+    CONSTRAINT Titles_UK UNIQUE (TitleName)
+);
 
 CREATE TABLE Player_has_title (
     TitleID INT NOT NULL,
@@ -25,23 +32,14 @@ CREATE TABLE Player_has_title (
     
     CONSTRAINT FK_Player_has_title_Title
         FOREIGN KEY (TitleID)
-        REFERENCES Title(TitleID)
+        REFERENCES Titles(TitleID)
         ON DELETE NO ACTION
         ON UPDATE CASCADE,
 
     CONSTRAINT PK_Player_has_title PRIMARY KEY (TitleID, PlayerID)
 );
 
-CREATE TABLE Titles(
-    TitleId INT NOT NULL,
-    TitleName VARCHAR2(30) NOT NULL,
-
-    CONSTRAINT Titles_PK PRIMARY KEY (TitleId),
-    CONSTRAINT Titles_UK UNIQUE (TitleName)
-
-);
-
-CREATE TABLE Clubs(
+CREATE TABLE Clubs (
     ClubID INT NOT NULL,
     Name VARCHAR2(30) NOT NULL,
     Description VARCHAR2(255), 
@@ -55,12 +53,12 @@ CREATE TABLE Clubs(
         ON UPDATE CASCADE
 );
 
-CREATE TABLE Players_In_Club(
+CREATE TABLE Players_In_Club (
     ClubID INT NOT NULL,
     PlayerID VARCHAR2(30) NOT NULL,
     LeftDate DATE,
 
-    CONSTRAINT Players_In_Club_PK PRIMARY KEY (ClubID, PlayerID)
+    CONSTRAINT Players_In_Club_PK PRIMARY KEY (ClubID, PlayerID),
 
     CONSTRAINT Players_In_Club_FK_Club
         FOREIGN KEY (ClubID)
@@ -74,9 +72,7 @@ CREATE TABLE Players_In_Club(
         ON UPDATE CASCADE
 );
 
-
-
-CREATE TABLE Tournaments(
+CREATE TABLE Tournaments (
     TournamentID INT NOT NULL,
     Name VARCHAR2(30) NOT NULL,
     IDOrganizer VARCHAR2(30) NOT NULL, -- ID of the player who organizes the tournament
@@ -92,12 +88,10 @@ CREATE TABLE Tournaments(
         FOREIGN KEY (IDOrganizer, IDClub)
         REFERENCES Players_In_Club(ClubID, PlayerID)
         ON DELETE NO ACTION
-        ON UPDATE CASCADE,
+        ON UPDATE CASCADE
 );
 
-
-CREATE TABLE Player_Play_Tournament(
-
+CREATE TABLE Player_Play_Tournament (
     IdPlayerInTournament INT NOT NULL,
     TournamentID INT NOT NULL,
     PlayerID VARCHAR2(30) NOT NULL,
@@ -117,7 +111,7 @@ CREATE TABLE Player_Play_Tournament(
         ON UPDATE CASCADE
 );
 
-CREATE TABLE Player_Team(
+CREATE TABLE Player_Team (
     IdTeam INT NOT NULL,
     IDPlayerInTournament INT NOT NULL,
 
@@ -133,4 +127,4 @@ CREATE TABLE Player_Team(
         REFERENCES teams(IdTeam)
         ON DELETE NO ACTION
         ON UPDATE CASCADE
-)
+);
