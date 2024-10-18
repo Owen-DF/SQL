@@ -7,7 +7,7 @@ CREATE TABLE Player (
     Email VARCHAR2(100) UNIQUE NOT NULL,
     Password VARCHAR2(255) NOT NULL, 
     Phonenumber VARCHAR2(15),
-    Rating INT CHECK (Rating >= 0),
+    Rating INT CHECK (Rating >= 0) default 1500,
     
     CONSTRAINT Player_PK PRIMARY KEY (Nickname)
 );
@@ -77,7 +77,7 @@ CREATE TABLE Tournaments (
     Name VARCHAR2(30) NOT NULL,
     IDOrganizer VARCHAR2(30) NOT NULL, -- ID of the player who organizes the tournament
     IDClub INT NOT NULL,
-    Rounds INT CHECK(Rounds > 0) NOT NULL,
+    Rounds INT CHECK(Rounds > 5) NOT NULL,
     Date DATE NOT NULL,
     PrizeDescription VARCHAR2(200),
     TournamentType VARCHAR2(30) CHECK(TournamentType IN('teams', 'individual')) NOT NULL,
