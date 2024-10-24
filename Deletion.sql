@@ -15,8 +15,6 @@ DROP TABLE Player_Obtain_Gift;
 DROP TABLE OnlineGift;
 DROP TABLE Merchandising;
 DROP TABLE Gift;
-
-
 DROP TABLE Titles;
 DROP TABLE Player;
 DROP TABLE Teams;

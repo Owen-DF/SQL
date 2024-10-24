@@ -1,4 +1,4 @@
-    CREATE TABLE Player (
+CREATE TABLE Player (
     Nickname VARCHAR2(30) NOT NULL,
     Name VARCHAR2(30) NOT NULL,
     Surname VARCHAR2(30) NOT NULL,
@@ -181,6 +181,3 @@ CREATE TABLE Player_Obtain_Gift(
     Date_Time DATE NOT NULL,
     CONSTRAINT Player_Obtain_Gift_PK PRIMARY KEY (GiftID, PlayerID, Date_Time)
 );
-
-
-    
