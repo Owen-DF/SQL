@@ -128,4 +128,4 @@ BEGIN
     SET Stock = Stock - 1
     WHERE GiftID = :NEW.GiftID;
 END;
-/
+
