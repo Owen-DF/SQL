@@ -145,6 +145,7 @@ INSERT ALL
     INTO Player_Team (IdTeam, IDPlayerInTournament) VALUES (1, 17)
     INTO Player_Team (IdTeam, IDPlayerInTournament) VALUES (1, 18)
     INTO Player_Team (IdTeam, IDPlayerInTournament) VALUES (1, 19)
+    INTO Player_Team (IdTeam, IDPlayerInTournament) VALUES (2, 5)
 SELECT * FROM dual;
 
 -- Insertions for Chat
@@ -159,4 +160,163 @@ INSERT ALL
     INTO Chat (ChatID, Name, TournamentID) VALUES (8, 'strategies chat', 8)
     INTO Chat (ChatID, Name, TournamentID) VALUES (9, 'bobby fisher chat', 9)
     INTO Chat (ChatID, Name, TournamentID) VALUES (10, 'sigma squad', 10)
+SELECT * FROM dual;
+
+-- Insertions for Player_Write_Chat
+INSERT All
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 1, TO_DATE('2023-10-01 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), 'Hello, team!')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 2, TO_DATE('2023-10-01 12:05:00', 'YYYY-MM-DD HH24:MI:SS'), 'Excited to start the tournament!')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 3, TO_DATE('2023-10-01 12:10:00', 'YYYY-MM-DD HH24:MI:SS'), 'Good luck, everyone!')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 4, TO_DATE('2023-10-01 12:15:00', 'YYYY-MM-DD HH24:MI:SS'), 'Let’s bring our A-game!')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 5, TO_DATE('2023-10-01 12:20:00', 'YYYY-MM-DD HH24:MI:SS'), 'I’m ready for this!')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 6, TO_DATE('2023-10-01 12:25:00', 'YYYY-MM-DD HH24:MI:SS'), 'Let’s aim for the top.')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 7, TO_DATE('2023-10-01 12:30:00', 'YYYY-MM-DD HH24:MI:SS'), 'Make every move count!')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 8, TO_DATE('2023-10-01 12:35:00', 'YYYY-MM-DD HH24:MI:SS'), 'We’ve got this!')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 9, TO_DATE('2023-10-01 12:40:00', 'YYYY-MM-DD HH24:MI:SS'), 'All set for round one.')
+    INTO Player_Write_Chat (ChatID, PlayerInTournamentID, DateTime, Message) VALUES (1, 10, TO_DATE('2023-10-01 12:45:00', 'YYYY-MM-DD HH24:MI:SS'), 'Let’s win this tournament!')
+SELECT * FROM dual;
+
+-- Insertions for Games
+INSERT ALL
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (1, 1, 1, 1, 2, TO_DATE('2023-10-01 12:00:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (2, 1, 1, 3, 4, TO_DATE('2023-10-01 12:05:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (3, 1, 1, 5, 6, TO_DATE('2023-10-01 12:10:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (4, 1, 1, 7, 8, TO_DATE('2023-10-01 12:15:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (5, 1, 1, 9, 10, TO_DATE('2023-10-01 12:20:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (6, 1, 1, 11, 12, TO_DATE('2023-10-01 12:25:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (7, 1, 1, 13, 14, TO_DATE('2023-10-01 12:30:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (8, 1, 1, 15, 16, TO_DATE('2023-10-01 12:35:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (9, 1, 1, 17, 18, TO_DATE('2023-10-01 12:40:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+    INTO Games(GameID, TournamentID, Round, WhitePlayer, BlackPlayer, DateTime, Result) VALUES (10, 1, 1, 19, 5, TO_DATE('2023-10-01 12:45:00', 'YYYY-MM-DD HH24:MI:SS'), NULL)
+SELECT * FROM dual;
+
+
+-- Insertions for Leagues
+INSERT ALL 
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (1, 'Alpha League', 1, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (2, 'Beta League', 2, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (3, 'Gamma League', 3, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (4, 'Delta League', 4, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (5, 'Epsilon League', 5, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (6, 'Zeta League', 6, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (7, 'Eta League', 7, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (8, 'Theta League', 8, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (9, 'Iota League', 9, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+    INTO Leagues(IdLeague, Name, ClubID, StartDate, EndDate) VALUES (10, 'Sigma League', 10, TO_DATE('2023-01-01', 'YYYY-MM-DD'), TO_DATE('2023-12-31', 'YYYY-MM-DD'))
+SELECT * FROM dual;
+
+-- Insertions for Player_Play_League
+INSERT ALL
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (1, 'johnd69', 1)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (2, 'jsmithy22', 2)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (3, 'ajohnson88', 3)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (4, 'bbrown85', 4)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (5, 'cdavis95', 5)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (6, 'dmiller20', 6)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (7, 'ewilson49', 7)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (8, 'fmoore33', 8)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (9, 'gtaylor93', 9)
+    INTO Player_Play_League(IdLeague, IDPlayer, Ranking) VALUES (10, 'handersonnn2', 10)
+SELECT * FROM dual;
+
+
+--Insertions for Reward
+
+Insert ALL
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (1, 'Trophy', 'A trophy for the winner', 100, 10, 1)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (2, 'Medal', 'A medal for the runner-up', 50, 10, 1)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (3, 'Certificate', 'A certificate for the third place', 25, 10, 1)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (4, 'Cash Prize', 'A cash prize for the winner', 200, 10, 1)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (5, 'Gift Card', 'A gift card for the winner', 150, 10, 1)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (6, 'Trophy', 'A trophy for the winner', 100, 10, 2)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (7, 'Award', 'An award for the winner', 100, 10, 2)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (8, 'BANG', 'BANG', 50, 10, 2)   
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (9, 'Pow', 'BANG', 10000, 100, 2)
+    INTO Reward (RewardID, Name, Description, Points, Games, ClubId) VALUES (10, 'Fizz', 'Buzz', 500, 150, 2)
+SELECT * FROM dual;
+
+
+--Insertions for Player_Reward
+
+Insert ALL
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (1, 'johnd69', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (2, 'jsmithy22', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (3, 'ajohnson88', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (4, 'bbrown85', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (5, 'cdavis95', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (6, 'dmiller20', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (7, 'ewilson49', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (8, 'fmoore33', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (9, 'gtaylor93', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Reward (RewardID, PlayerID, DateTime) VALUES (10, 'handersonnn2', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+SELECT * FROM dual;
+
+--Insertiona for Gift
+
+Insert ALL
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (1, 'Chess Set', 'A chess set for practice', 10, 100, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (2, 'Chess Clock', 'A chess clock for tournaments', 5, 200, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (3, 'Chess Book', 'A chess book for learning', 20, 50, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (4, 'Chess Board', 'A chess board for practice', 15, 150, 'Merchandising')
+    INTO Gift(GiftID, Name, Description, Stock, Cost, GiftType) VALUES (5, 'Chess Trophy', 'A trophy for the winner', 5, 200, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (6, 'Chess Medal', 'A medal for the runner-up', 5, 200, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (7, 'Chess Certificate', 'A certificate for the third place', 5, 200, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (8, 'Chess Cash Prize', 'A cash prize for the winner', 5, 200, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (9, 'Chess Gift Card', 'A gift card for the winner', 5, 200, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (10, 'Chess Award', 'An award for the winner', 5, 200, 'Merchandising')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (11, 'Horse Emoji', 'Horse Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (12, 'Dog Emoji', 'Dog Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (13, 'Cat Emoji', 'Cat Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (14, 'Pig Emoji', 'Pig Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (15, 'Cow Emoji', 'Cow Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (16, 'Chicken Emoji', 'Chicken Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (17, 'Penguin Emoji', 'Penguin Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (18, 'Dolphin Emoji', 'Dolphin Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (19, 'Shark Emoji', 'Shark Face', 5, 200, 'Online')
+    INTO Gift (GiftID, Name, Description, Stock, Cost, GiftType) VALUES (20, 'Whale Emoji', 'Whale Face', 5, 200, 'Online')
+SELECT * FROM dual;
+
+--Insertions for PlayerObtainGift
+
+Insert All 
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (1, 'johnd69', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (2, 'jsmithy22', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (3, 'ajohnson88', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (4, 'bbrown85', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (5, 'cdavis95', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (6, 'dmiller20', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (7, 'ewilson49', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (8, 'fmoore33', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (9, 'gtaylor93', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+    INTO Player_Obtain_Gift (GiftID, PlayerID, date_time) VALUES (10, 'handersonnn2', TO_DATE('2023-10-01', 'YYYY-MM-DD'))
+SELECT * FROM dual;
+
+
+--Insertions for Merchandising
+
+Insert All 
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (1, 'Standard', 1)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (2, 'Standard', 1)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (3, 'Standard', 1)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (4, 'Standard', 1)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (5, 'Large', 5)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (6, 'Large', 5)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (7, 'Large', 5)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (8, 'Large', 5)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (9, 'Large', 5)
+    INTO Merchandising (GiftID, SizeGift, Weight) VALUES (10, 'Large', 5)
+SELECT * FROM dual;
+
+--Insertions for Online
+Insert All
+    INTO OnlineGift(GiftID, URL) VALUES (11, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (12, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (13, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (14, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (15, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (16, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (17, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (18, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (19, 'https://emojicombos.com/')
+    INTO OnlineGift(GiftID, URL) VALUES (20, 'https://emojicombos.com/')
 SELECT * FROM dual;

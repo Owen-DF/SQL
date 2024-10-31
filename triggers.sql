@@ -31,12 +31,10 @@ BEGIN
       AND pic.ClubID = t.IDClub
       AND pic.LeftDate IS NULL
       AND t.TournamentID = :NEW.TournamentID;
-
     -- Raise an error if the WhitePlayer is not a current member
     IF whitePlayerCount = 0 THEN
         RAISE_APPLICATION_ERROR(-20001, 'White player is not an active member of the organizing club.');
     END IF;
-
     -- Check if BlackPlayer is an active member of the club that organized the tournament
     SELECT COUNT(*)
     INTO blackPlayerCount
@@ -46,7 +44,6 @@ BEGIN
       AND pic.ClubID = t.IDClub
       AND pic.LeftDate IS NULL
       AND t.TournamentID = :NEW.TournamentID;
-
     -- Raise an error if the BlackPlayer is not a current member
     IF blackPlayerCount = 0 THEN
         RAISE_APPLICATION_ERROR(-20002, 'Black player is not an active member of the organizing club.');
@@ -102,27 +99,22 @@ BEGIN
     SELECT Rating INTO playerRating
     FROM Player
     WHERE Nickname = :NEW.PlayerID;
-
     -- Get the gift's current stock and cost
     SELECT Stock, Cost INTO giftStock, giftCost
     FROM Gift
     WHERE GiftID = :NEW.GiftID;
-
     -- Check if the player has enough rating points to buy the gift
     IF playerRating < giftCost THEN
         RAISE_APPLICATION_ERROR(-20001, 'Player does not have enough rating points to buy this gift.');
     END IF;
-
     -- Check if the gift is in stock
     IF giftStock <= 0 THEN
         RAISE_APPLICATION_ERROR(-20002, 'Gift is out of stock.');
     END IF;
-
     -- Deduct the cost of the gift from the player’s rating
     UPDATE Player
     SET Rating = Rating - giftCost
     WHERE Nickname = :NEW.PlayerID;
-
     -- Decrease the stock of the gift by 1
     UPDATE Gift
     SET Stock = Stock - 1
